@@ -1,0 +1,9 @@
+filebeat:
+  inputs:
+    - type: log
+      paths:
+        - "/usr/share/filebeat/input.json"
+
+output:
+  logstash:
+      hosts: ["LOGSTASH_IP:5000"]

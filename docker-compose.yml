@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  logstash:
+    image: logstash-lab
+    hostname: logstash
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      - INDEXER_IP=10.10.10.235
+      - LOGSTASH_KS_USER=admin
+      - LOGSTASH_KS_PASS=admin
+    volumes:
+      - ./root-ca.pem:/usr/share/logstash/config/ca-chain.cert.pem
+  
+  filebeat:
+    image: filebeat-lab
+    hostname: filebeat
+    restart: always
+    environment:
+      - LOGSTASH_IP=logstash
