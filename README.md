@@ -4,6 +4,10 @@
 
 ## Installation
 1. Clone this repository
+```shell
+git clone https://github.com/dariommr/logstash-lab.git
+cd logstash-lab
+```
 2. Build the images
 ```shell
 docker build -t logstash-lab logstash/.
