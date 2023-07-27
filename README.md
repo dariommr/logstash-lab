@@ -26,3 +26,6 @@ docker exec -ti logstash-lab-filebeat-1 bash
 echo '{"timestamp":"2023-07-27T13:00:00.000-0300","rule":{"level":9,"description":"Logstash Test Alert","id":"999999","firedtimes":99,"mail":false,"groups":["logstash-test"]},"agent":{"id":"999","name":"NO-AGENT","ip":"1.2.3.4"},"manager":{"name":"no-manager"},"id":"1690476900.3546161","cluster":{"name":"no-cluster","node":"node01"},"decoder":{"name":"json"},"data":{"logstash-test":{"object-field":{"Subfield01":"value01","Subfield02":"value02"},"text-field":"value","numeric-field":"9.9","boolean-field":true}},"location":"logstash-test"}' >>input.json
 ```
 This will add a json line to the `input.json` file which is read by the Filebeat service and sent to the Logstash container.
+
+What you should see on the indexer:
+![image](https://github.com/dariommr/logstash-lab/assets/37050249/582259ec-a0c4-460e-a3b2-013d0930e7ef)
