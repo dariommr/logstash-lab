@@ -13,8 +13,12 @@ cd logstash-lab
 docker build -t logstash-lab logstash/.
 docker build -t logstash-lab filebeat/.
 ```
-3. Modify `the docker-compose.yml` file to configure the `INDEXER_IP`, `LOGSTASH_KS_USER`, `LOGSTASH_KS_PASS` environment variables.
-4. Run `docker compose up -d` to start the containers
+3. Modify the `docker-compose.yml` file to configure the `INDEXER_IP`, `LOGSTASH_KS_USER`, `LOGSTASH_KS_PASS` environment variables.
+4. Copy the `root-ca.pem` certificate from the Wazuh Indexer (or Filebeat) certificate folder to this folder.
+```shell
+scp user@indexer-ip:/etc/wazuh-indexer/certs/root-ca.pem .
+```
+6. Run `docker compose up -d` to start the containers
 
 ## How to use it
 1. Execute bash in interactive mode in the Filebeat docker container
